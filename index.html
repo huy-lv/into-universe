@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Into Universe</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    #renderCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      outline: none;
+      touch-action: none;
+    }
+    #loadingScreen {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at center, #0a0e1a 0%, #000 100%);
+      color: #cfd8e3;
+      z-index: 10;
+      transition: opacity 0.6s;
+    }
+    #loadingScreen.hidden { opacity: 0; pointer-events: none; }
+    #loadingScreen h1 {
+      font-weight: 200;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    #loadingBar {
+      width: 320px;
+      height: 2px;
+      background: #1e2a3a;
+      position: relative;
+      overflow: hidden;
+    }
+    #loadingBarFill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 0%;
+      background: linear-gradient(90deg, #4a9eff, #a8d8ff);
+      transition: width 0.3s;
+    }
+    #loadingText {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="renderCanvas"></canvas>
+  <div id="loadingScreen">
+    <h1>Into Universe</h1>
+    <div id="loadingBar"><div id="loadingBarFill"></div></div>
+    <div id="loadingText">ĐANG KHỞI TẠO...</div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
